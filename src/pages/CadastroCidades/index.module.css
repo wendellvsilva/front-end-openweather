@@ -1,3 +1,4 @@
+
 .container_principal {
     display: flex;
     flex-direction: column;
@@ -6,29 +7,34 @@
 
 .classe_cidade {
     width: 1200px;
-    height: auto;
-    border: 1px solid black;
-    padding: 20px;
+    
+    border: 1px solid red;
+   
     display: flex;
     flex-direction: column;
 }
 
 .barra_pesquisa {
     width: 466px;
-    border-color: #414ABA;
     border-radius: 5px;
-    margin-bottom: 20px;
 }
 
 .texto_informe_temperatura{
-    font-size: 24px;
+    font-size: 39.36px;
+
 }
 
 .busca_cidades_data {
-    display: flex;
-    flex-direction: column;
-    max-width: 1170px;
-    margin-bottom: 20px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.busca_cidades_data div:nth-child(5){
+    grid-column: 1 / span 2;
+}
+
+.busca_cidades{
+    border: 1px solid brown;
 }
 
 .alinhar_teste {
@@ -40,7 +46,9 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin-top: 60px; /* Adiciona um espaço entre os blocos */
+    width: 250px;
+    margin-top: 64px;
+    border: 1px solid ;
 }
 
 h1 {
@@ -138,3 +146,33 @@ p {
     
 }
 
+.texto_select_turno{
+    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    font-size: 32px;
+}
+
+.selecione_data{
+    border: 1px solid yellow ;
+    
+  
+}
+
+.turno{
+    border: 1px solid black ;
+    margin-top: 64px;
+}
+
+.txt_selecione_data{
+    font-size: 24px;
+    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    margin-bottom: 16px;
+}
+
+.txt_data{
+    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    margin-bottom: 16px;
+}
+
+.texto_turno{
+    margin-top: 16px;
+}
