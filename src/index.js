@@ -22,7 +22,10 @@ root.render(
             buttonCheckedBg: '#BEE7F9',
             buttonSolidCheckedColor: '#221F52',
             buttonSolidCheckedBorderColor: '#221F52',
-            
+            DatePicker: {
+              colorBorder: 'red', 
+              lineWidth: 40,
+            },
           },
         },
       }}

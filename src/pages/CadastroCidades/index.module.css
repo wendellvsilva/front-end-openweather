@@ -6,9 +6,7 @@
 }
 
 .classe_cidade {
-    width: 1200px;
-    
-    border: 1px solid red;
+    width: 1400px;
    
     display: flex;
     flex-direction: column;
@@ -34,9 +32,6 @@
     grid-column: 1 / span 2;
 }
 
-.busca_cidades{
-    border: 1px solid brown;
-}
 
 .input_temperatura{
     display: flex;
@@ -49,7 +44,7 @@
     gap: 10px;
     width: 400px;
     margin-top: 64px;
-    border: 1px solid ;
+    
 }
 
 h1 {
@@ -92,15 +87,15 @@ p {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    border: 1px solid black;
+    
 
 }
 
 .campos_clima {
     display: flex;
-    align-items: center; /* Garante que os itens fiquem alinhados verticalmente */
-    gap: 60px; /* Espaçamento entre os elementos */
-    border: 1px solid red;
+    align-items: center;
+    gap: 60px; 
+    
 }
 
 
@@ -128,17 +123,16 @@ p {
 }
 
 .clima_enum{
-    border: 2px solid palevioletred;
     margin-right: 60px;
 }
 
 .precipitacao{
-    border: 2px solid palevioletred;
+    
     margin-right: 60px;
 }
 
 .umidade{
-    border: 2px solid palevioletred;
+    
     margin-right: 60px;
 }
 
@@ -154,20 +148,20 @@ p {
 }
 
 .selecione_data{
-    border: 1px solid yellow ;
+    
     margin-left: 164px;
     
   
 }
 
 .turno{
-    border: 1px solid black ;
+    
     margin-top: 64px;
     margin-left: 164px;   
 }
 
 .txt_selecione_data{
-    font-size: 24px;
+    font-size: 32px;
     font-family: "TT SUPER MOLON REGULAR", sans-serif;
     margin-bottom: 16px;
 }
@@ -196,4 +190,20 @@ p {
 
 .error {
     border-color: red;
+}
+
+.botao_salvar{
+    width: 199px;
+    height: 40px;
+    background-color: #414ABA;
+    border-radius: 0%;
+    
+    
+}
+
+.botoes_salvar_cancelar{
+    width: 350px;
+    margin-top: 91px;
+    margin-left: 770px;
+    margin-bottom: 6px;
 }
