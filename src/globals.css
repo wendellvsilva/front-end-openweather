@@ -7,3 +7,14 @@
 :root{
     --primarycolor: #414ABA
 }
+
+.custom-input-number .ant-input-number {
+    width: 90px;
+    height: 40px;
+  }
+  
+  .custom-input-number .ant-input-number-input {
+    border: 8px solid black;
+    border-radius: 5px;
+  }
+  

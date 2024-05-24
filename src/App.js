@@ -1,6 +1,6 @@
 import { Header } from './componentes/Header';
 import React from 'react';
-import { CadastroCidadePage } from './pages/CadastroCidades';
+import { CadastroCidadePage } from './pages/cadastroCidades';
 
 function App() {
   return (

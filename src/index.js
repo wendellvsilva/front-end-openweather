@@ -11,11 +11,19 @@ root.render(
       theme={{
         components: {
           InputNumber: {
-            colorBorder: '#414ABA'
+            colorBorder: '#414ABA',
+            borderWidth: 24,
           },
-          Radio:{
+          Radio: {
+            buttonBg: '#BEE7F9',
+            buttonColor: '#414ABA',
+            buttonPaddingInline: 15,
+            radioSize: 16,
+            buttonCheckedBg: '#BEE7F9',
+            buttonSolidCheckedColor: '#221F52',
+            buttonSolidCheckedBorderColor: '#221F52',
             
-          }
+          },
         },
       }}
     >
