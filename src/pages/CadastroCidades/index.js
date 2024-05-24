@@ -1,20 +1,41 @@
 import React from 'react';
 import { useForm, Controller } from 'react-hook-form';
-import { Input, Breadcrumb, Select, Space, InputNumber, DatePicker, Radio, Button } from 'antd';
+import axios from 'axios';
+import { Input, Breadcrumb, Select, Space, InputNumber, DatePicker, Radio, Button, message } from 'antd';
 import style from './index.module.css';
 
 const { Search } = Input;
 
-const onDateChange = (date, dateString) => {
-    console.log(date, dateString);
-};
-
 export function CadastroCidadePage() {
-    const { handleSubmit, control, formState: { errors } } = useForm();
+    const { handleSubmit, control, formState: { errors }, reset } = useForm();
     const plainOptions = ['MANHÃ', 'TARDE', 'NOITE'];
 
-    const onSubmit = (data) => {
-        console.log('Form Data:', data);
+    const onSubmit = async (data) => {
+        try {
+            const payload = {
+                cidade: data.cidade,
+                clima: {
+                    data: data.data.format("DD/MM/YYYY HH:mm:ss"),
+                    umidade: data.umidade.toString(),
+                    precipitacao: data.precipitacao.toString(),
+                    temperatura: data.temperaturaMaxima.toString(),
+                    velVento: data.vento.toString(),
+                    tempMaxima: data.temperaturaMaxima.toString(),
+                    tempMinima: data.temperaturaMinima.toString(),
+                    situacaoClima: data.clima,
+                    turno: data.turno,
+                }
+            };
+
+            const response = await axios.post('http://localhost:8080/cidades', payload);
+            if (response.status === 201) {
+                message.success('Cidade cadastrada com sucesso!');
+                reset();
+            }
+        } catch (error) {
+            message.error('Erro ao cadastrar cidade!');
+            console.error('Erro ao cadastrar cidade:', error);
+        }
     };
 
     return (
@@ -55,7 +76,6 @@ export function CadastroCidadePage() {
                             render={({ field }) => (
                                 <DatePicker
                                     {...field}
-                                    onChange={(date, dateString) => field.onChange(date)}
                                     className={errors.data && style.error}
                                 />
                             )}
@@ -131,9 +151,9 @@ export function CadastroCidadePage() {
                                             className={`${style.selectInput} ${errors.clima && style.error}`}
                                             defaultValue="ensolarado"
                                             options={[
-                                                { value: 'ensolarado', label: 'Ensolarado' },
-                                                { value: 'chuvoso', label: 'Chuvoso' },
-                                                { value: 'nublado', label: 'Nublado' },
+                                                { value: 'ENSOLARADO', label: 'ENSOLARADO' },
+                                                { value: 'CHUVOSO', label: 'CHUVOSO' },
+                                                { value: 'NUBLADO', label: 'NUBLADO' },
                                             ]}
                                         />
                                     )}
