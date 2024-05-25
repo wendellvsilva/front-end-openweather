@@ -33,7 +33,7 @@ export function CadastroCidadePage() {
                     tempMaxima: temperaturaMaxima,
                     tempMinima: temperaturaMinima,
                     situacaoClima: clima,
-                    turno: turno,
+                    turno: turno
                 }
             };
 
@@ -145,7 +145,7 @@ export function CadastroCidadePage() {
                             </Space>
                         </div>
                         <div className={style.precipitacao}>
-                            <p>Precipitação*</p>
+                            <p className={style.txt_precipitacao}>Precipitação*</p>
                             <InputNumber
                                 value={precipitacao}
                                 onChange={(value) => setPrecipitacao(value)}

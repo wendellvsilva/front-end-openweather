@@ -1,4 +1,20 @@
 
+
+@font-face {
+    font-family: 'TT Supermolot Regular';
+    src: url(regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Supermolot Bold';
+    src: url(bold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+
 .container_principal {
     display: flex;
     flex-direction: column;
@@ -7,7 +23,6 @@
 
 .classe_cidade {
     width: 1400px;
-   
     display: flex;
     flex-direction: column;
 }
@@ -18,9 +33,9 @@
     border: 2px solid #414ABA;
 }
 
-.texto_informe_temperatura{
+.texto_informe_temperatura {
     font-size: 39.36px;
-
+    
 }
 
 .busca_cidades_data {
@@ -28,12 +43,11 @@
     grid-template-columns: 1fr 1fr;
 }
 
-.busca_cidades_data div:nth-child(5){
+.busca_cidades_data div:nth-child(5) {
     grid-column: 1 / span 2;
 }
 
-
-.input_temperatura{
+.input_temperatura {
     display: flex;
     gap: 4px;
 }
@@ -42,14 +56,14 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 400px;
+    width: 440px;
     margin-top: 64px;
     
 }
 
 h1 {
-    font-family: "TT SUPER MOLON BOLD", sans-serif;
-    margin: 24px 0px 24px 0px;
+    font-family: "TT Supermolot Bold", sans-serif;
+    margin: 24px 0px;
     color: #292929;
 }
 
@@ -60,18 +74,17 @@ h1 {
 
 .txt_buscar_cidades {
     font-size: 24px;
-    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    font-family: "TT Supermolot Regular", sans-serif;
 }
 
 .txt_cidade_obrigatoria {
     font-size: 14px;
     margin-bottom: 8px;
-    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    font-family: "TT Supermolot Regular", sans-serif;
 }
 
 .txt_maxima_minima {
     display: flex;
-    
 }
 
 .txt_minima {
@@ -79,7 +92,7 @@ h1 {
 }
 
 p {
-    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    font-family: "TT Supermolot Regular", sans-serif;
 }
 
 .informe_clima {
@@ -87,18 +100,13 @@ p {
     display: flex;
     flex-direction: column;
     gap: 16px;
-    
-
 }
 
 .campos_clima {
     display: flex;
     align-items: center;
-    gap: 60px; 
-    
+    gap: 60px;
 }
-
-
 
 .selectInput {
     width: 120px;
@@ -110,7 +118,7 @@ p {
 .inputNumber {
     width: 100px;
     height: 40px;
-    border-color: #414ABA;  
+    border-color: #414ABA;
     border-radius: 7px;
 }
 
@@ -118,90 +126,84 @@ p {
     width: 100px;
     padding: 8px;
     border: 2px solid #414ABA;
-    border-radius: 5px; 
+    border-radius: 5px;
     font-size: 16px;
 }
 
-.clima_enum{
+.clima_enum {
     margin-right: 60px;
 }
 
-.precipitacao{
-    
+.precipitacao {
+    margin-right: 60px;
+}
+.txt_precipitacao{
+    width: 107px;
+    height: 22px;
+}
+
+.umidade {
     margin-right: 60px;
 }
 
-.umidade{
-    
-    margin-right: 60px;
-}
-
-.selectInput{
+.selectInput {
     width: 207px;
     height: 40px;
-    
 }
 
-.texto_select_turno{
-    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+.texto_select_turno {
+    font-family: "TT Supermolot Regular", sans-serif;
     font-size: 32px;
 }
 
-.selecione_data{
-    
+.selecione_data {
     margin-left: 164px;
-    
-  
 }
 
-.turno{
-    
+.turno {
     margin-top: 64px;
-    margin-left: 164px;   
+    margin-left: 164px;
 }
 
-.txt_selecione_data{
+.txt_selecione_data {
     font-size: 32px;
-    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+    font-family: "TT Supermolot Regular", sans-serif;
     margin-bottom: 16px;
 }
 
-.txt_data{
-    font-family: "TT SUPER MOLON REGULAR", sans-serif;
+.txt_data {
+    font-family: "TT Supermolot Regular", sans-serif;
     margin-bottom: 8px;
-
 }
 
-.texto_turno{
+.texto_turno {
     margin-top: 16px;
     margin-bottom: 8px;
-
 }
 
 .inputNumber {
     width: 90px;
     height: 40px;
     border: 2px solid #414ABA;
-  }
-  .radio {
-    font-size: 12px; 
-    margin-right: 4px; 
+}
+
+.radio {
+    font-size: 12px;
+    margin-right: 4px;
 }
 
 .error {
     border-color: red;
 }
 
-.botao_salvar{
+.botao_salvar {
     width: 199px;
     height: 40px;
     background-color: #414ABA;
     border-radius: 0%;
-    
-    
 }
 
-.botoes_salvar_cancelar{
+.botoes_salvar_cancelar {
     width: 350px;
     margin-top: 91px;
     margin-left: 770px;
