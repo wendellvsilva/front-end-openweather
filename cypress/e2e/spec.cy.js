@@ -1,11 +1,12 @@
 describe('Cadastro de Cidades', () => {
   beforeEach(() => {
       cy.visit('http://localhost:3000/cadastroCidades/');
+      cy.get('h1').should('contain', 'Cadastro de dados meteorológicos');
   });
 
 
   it('Permitir o preenchimento e envio do formulário', () => {
-      cy.get('h1').should('contain', 'Cadastro de dados meteorológicos');
+      
       cy.get('input[placeholder="Digite a cidade"]').type('São Paulo');
       cy.get('.ant-picker-input').click();
       cy.get('.ant-picker-cell-inner').contains('15').click();
