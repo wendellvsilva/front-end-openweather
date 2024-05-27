@@ -8,4 +8,6 @@
     --primarycolor: #414ABA
 }
 
-
+.ant-radio-wrapper:focus .ant-radio {
+    font-family: 'SUPERMOLOT BOLD', sans-serif;
+  }

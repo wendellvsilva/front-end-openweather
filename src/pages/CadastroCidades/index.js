@@ -39,7 +39,7 @@ export function CadastroCidadePage() {
 
             const resposta = await axios.post('http://localhost:8080/cidades', dados, {
                 headers:{
-                    "Content-Type": 'application.json'
+                    "Content-Type": 'application/json'
                 }
             });
             if (resposta.status === 201) {
@@ -86,8 +86,10 @@ export function CadastroCidadePage() {
                     <p className={style.txt_data}>Data*</p>
                     <Space direction="vertical">
                         <DatePicker
+                        placeholder="Selecione a data"
                             value={data}
                             onChange={(date) => setData(date)}
+                            style={{ width: '200px' }} 
                         />
                     </Space>
                 </div>
@@ -121,9 +123,10 @@ export function CadastroCidadePage() {
                         value={turno}
                         onChange={(e) => setTurno(e.target.value)}
                         className={style.radio}
+                        
                     >
                         {opcoesTurno.map((opcao) => (
-                            <Radio.Button key={opcao} value={opcao}>{opcao}</Radio.Button>
+                            <Radio.Button key={opcao}  value={opcao}>{opcao}</Radio.Button>
                         ))}
                     </Radio.Group>
                 </div>
@@ -176,6 +179,9 @@ export function CadastroCidadePage() {
                         </div>
                     </div>
                     <div className={style.botoes_salvar_cancelar}>
+                    <Button className={style.botao_cancelar} type="primary" htmlType="submit">
+                            Cancelar
+                        </Button>
                         <Button className={style.botao_salvar} type="primary" htmlType="submit">
                             Salvar
                         </Button>

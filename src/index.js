@@ -22,10 +22,12 @@ root.render(
             buttonCheckedBg: '#BEE7F9',
             buttonSolidCheckedColor: '#221F52',
             buttonSolidCheckedBorderColor: '#221F52',
+            fontFamily: "TT Supermolot Regular"
           },
           DatePicker: {
-          colorBorder: 'red', 
-          lineWidth: 40,
+          colorBorder: '#414ABA', 
+          lineWidth: 2,
+          
             },
           
         },

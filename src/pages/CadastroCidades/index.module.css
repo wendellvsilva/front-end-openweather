@@ -68,8 +68,8 @@ h1 {
 }
 
 .data_cidades {
-    width: 100%;
-    height: 90px;
+    width: 200px;
+    height: 40px;
 }
 
 .txt_buscar_cidades {
@@ -157,12 +157,13 @@ p {
 }
 
 .selecione_data {
-    margin-left: 164px;
+    margin-left: 74px;
+    
 }
 
 .turno {
     margin-top: 64px;
-    margin-left: 164px;
+    margin-left: 74px;
 }
 
 .txt_selecione_data {
@@ -189,7 +190,7 @@ p {
 
 .radio {
     font-size: 12px;
-    margin-right: 4px;
+    margin-right: 40px;
 }
 
 .error {
@@ -200,12 +201,25 @@ p {
     width: 199px;
     height: 40px;
     background-color: #414ABA;
-    border-radius: 0%;
+    border-radius: 2px;
+    font-family: "TT Supermolot Bold", sans-serif;
+
 }
 
+.botao_cancelar{
+    width: 199px;
+    height: 40px;
+    border: 1px solid #414ABA;
+    color: #414ABA;
+    background-color: white;
+    border-radius: 2px;
+    font-family: "TT Supermolot Bold", sans-serif;
+    margin-right: 9px;
+}
 .botoes_salvar_cancelar {
-    width: 350px;
-    margin-top: 91px;
-    margin-left: 770px;
+    width: 440px;
+    margin-top: 60px;
+    margin-left: 550px;
     margin-bottom: 6px;
+    
 }
