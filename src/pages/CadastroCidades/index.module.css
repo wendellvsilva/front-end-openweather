@@ -115,20 +115,7 @@ p {
     font-size: 16px;
 }
 
-.inputNumber {
-    width: 100px;
-    height: 40px;
-    border-color: #414ABA;
-    border-radius: 7px;
-}
 
-.inputNumber input {
-    width: 100px;
-    padding: 8px;
-    border: 2px solid #414ABA;
-    border-radius: 5px;
-    font-size: 16px;
-}
 
 .clima_enum {
     margin-right: 60px;
