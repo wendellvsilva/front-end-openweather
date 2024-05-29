@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import locale from 'antd/es/date-picker/locale/pt_BR';
-import { Input, Breadcrumb, Select, Space, InputNumber, DatePicker, Radio, Button, message } from 'antd';
+import { Input, Breadcrumb, Select, Space, InputNumber, DatePicker, Radio, Button, message, Modal } from 'antd';
 import classNames from 'classnames';
 import style from './index.module.css';
 
@@ -19,6 +19,7 @@ export function CadastroCidadePage() {
     const [turno, setTurno] = useState('');
 
     const [errors, setErrors] = useState({});
+    const [isModalVisible, setIsModalVisible] = useState(false);
 
     const options = [
         { label: 'MANHÃ', value: 'MANHÃ' },
@@ -42,6 +43,7 @@ export function CadastroCidadePage() {
 
         if (Object.keys(erro).length > 0) {
             setErrors(erro);
+            setIsModalVisible(true);
             return;
         }
 
@@ -84,6 +86,10 @@ export function CadastroCidadePage() {
                 content: 'Erro!',
             });
         }
+    };
+
+    const handleModalOk = () => {
+        setIsModalVisible(false);
     };
 
     return (
@@ -226,6 +232,17 @@ export function CadastroCidadePage() {
                     </div>
                 </div>
             </form>
+            <Modal
+                title=""
+                visible={isModalVisible}
+                onOk={handleModalOk}
+                onCancel={handleModalOk}
+                footer={null}
+                width={755}
+                bodyStyle={{ backgroundColor: '#db0d33', color: 'white', fontSize: '32px', width: '100%' }}
+            >
+                <p>Por favor, preencha todos os campos obrigatórios antes de salvar.</p>
+            </Modal>
         </main>
     );
 }

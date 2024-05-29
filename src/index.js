@@ -30,7 +30,7 @@ root.render(
           lineWidth: 2,
           
             },
-        
+          
         },
       }}
     >

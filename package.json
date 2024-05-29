@@ -6,8 +6,6 @@
     "@chakra-ui/react": "^2.8.2",
     "@emotion/react": "^11.11.4",
     "@emotion/styled": "^11.11.5",
-    "@testing-library/jest-dom": "^5.17.0",
-    "@testing-library/react": "^13.4.0",
     "@testing-library/user-event": "^13.5.0",
     "antd": "^5.17.4",
     "axios": "^1.7.2",
@@ -22,7 +20,8 @@
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
-    "test": "react-scripts test",
+    "test": "jest",
+    "coverage": "jest --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,6 +43,15 @@
     ]
   },
   "devDependencies": {
-    "cypress": "^13.10.0"
+    "@babel/preset-env": "^7.24.6",
+    "@babel/preset-react": "^7.24.6",
+    "@testing-library/jest-dom": "^6.4.5",
+    "@testing-library/react": "^15.0.7",
+    "babel-jest": "^29.7.0",
+    "cypress": "^13.10.0",
+    "eslint-plugin-jest": "^28.5.0",
+    "jest": "^27.5.1",
+    "jest-environment-jsdom": "^29.7.0",
+    "react-test-renderer": "^18.3.1"
   }
 }
