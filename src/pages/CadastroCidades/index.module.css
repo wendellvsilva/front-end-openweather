@@ -1,20 +1,3 @@
-
-
-@font-face {
-    font-family: 'TT Supermolot Regular';
-    src: url(regular.ttf);
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'TT Supermolot Bold';
-    src: url(bold.ttf);
-    font-weight: normal;
-    font-style: normal;
-}
-
-
 .container_principal {
     display: flex;
     flex-direction: column;
@@ -31,11 +14,12 @@
     width: 466px;
     border-radius: 5px;
     border: 2px solid #414ABA;
+    background-color: white;
 }
 
 .texto_informe_temperatura {
     font-size: 39.36px;
-    
+
 }
 
 .busca_cidades_data {
@@ -49,7 +33,7 @@
 
 .input_temperatura {
     display: flex;
-    gap: 4px;
+    gap: 8px;
 }
 
 .informe_temperatura {
@@ -58,7 +42,7 @@
     gap: 10px;
     width: 440px;
     margin-top: 64px;
-    
+
 }
 
 h1 {
@@ -124,7 +108,8 @@ p {
 .precipitacao {
     margin-right: 60px;
 }
-.txt_precipitacao{
+
+.txt_precipitacao {
     width: 107px;
     height: 22px;
 }
@@ -145,7 +130,7 @@ p {
 
 .selecione_data {
     margin-left: 74px;
-    
+
 }
 
 .turno {
@@ -178,6 +163,8 @@ p {
 .radio {
     font-size: 12px;
     margin-right: 40px;
+    border: 1px solid red;
+    width: 190px;
 }
 
 .error {
@@ -193,7 +180,7 @@ p {
 
 }
 
-.botao_cancelar{
+.botao_cancelar {
     width: 199px;
     height: 40px;
     border: 1px solid #414ABA;
@@ -203,10 +190,39 @@ p {
     font-family: "TT Supermolot Bold", sans-serif;
     margin-right: 9px;
 }
+
 .botoes_salvar_cancelar {
     width: 440px;
     margin-top: 60px;
     margin-left: 550px;
     margin-bottom: 6px;
-    
+
+}
+
+.erro_borda {
+    border: 2px solid red !important;
+}
+
+.erro_texto {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+
+}
+
+.mensagem_erro {
+    background-color: #ff4d4f;
+    color: white; 
+    font-weight: bold; 
+    padding: 10px;
+    border-radius: 5px;
+}
+.radioGroup {
+    display: flex;
+    gap: 8px;
+}
+
+.erro_borda_radio{
+    border: 2px solid red !important;
+    width: 243.5px;
 }

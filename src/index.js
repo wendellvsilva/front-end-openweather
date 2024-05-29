@@ -18,17 +18,19 @@ root.render(
             buttonBg: '#BEE7F9',
             buttonColor: '#414ABA',
             buttonPaddingInline: 15,
-            radioSize: 16,
+           
             buttonCheckedBg: '#BEE7F9',
             buttonSolidCheckedColor: '#221F52',
             buttonSolidCheckedBorderColor: '#221F52',
             
           },
+
           DatePicker: {
           colorBorder: '#414ABA', 
           lineWidth: 2,
-            },
           
+            },
+        
         },
       }}
     >

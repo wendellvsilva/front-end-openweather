@@ -8,7 +8,9 @@ function App() {
      <Header/>
      <div style={{ marginTop: '20px', marginLeft:'80px' }}>
        <CadastroCidadePage/>
+       
      </div>
+
     </div>
   );
 }

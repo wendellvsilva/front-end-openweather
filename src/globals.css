@@ -8,6 +8,17 @@
     --primarycolor: #414ABA
 }
 
-.ant-radio-wrapper:focus .ant-radio {
-    font-family: 'SUPERMOLOT BOLD', sans-serif;
-  }
+
+  @font-face {
+    font-family: 'TT Supermolot Regular';
+    src: url(regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'TT Supermolot Bold';
+    src: url(bold.ttf);
+    font-weight: normal;
+    font-style: normal;
+}

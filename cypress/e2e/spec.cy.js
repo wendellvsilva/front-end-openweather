@@ -1,11 +1,11 @@
 describe('Cadastro de Cidades', () => {
   beforeEach(() => {
-    cy.visit('http://localhost:3000/cadastroCidades/');
+    cy.visit("http://localhost:3000/cadastroCidades/");
     cy.get('h1').should('contain', 'Cadastro de dados meteorológicos');
   });
 
   it('Permitir o preenchimento e envio do formulário', () => {
-    cy.get('input[placeholder="Digite a cidade"]').type('São Paulo');
+    cy.get('input[placeholder="Digite a cidade"]').type('Manaus, Amazonas');
     cy.get('.ant-picker-input').click();
     cy.get('.ant-picker-cell-inner').contains('15').click();
     cy.get(':nth-child(1) > .ant-input-number-input-wrap > .ant-input-number-input').type('30');
@@ -26,8 +26,4 @@ describe('Cadastro de Cidades', () => {
 
   });
 
-  // it('Exibir mensagem de erro ao tentar enviar o formulário sem preencher os campos obrigatórios', () => {
-  //     cy.get('button.botao_salvar').click();
-  //     cy.get('.ant-message-notice').should('contain', 'Erro!');
-  // });
 });
