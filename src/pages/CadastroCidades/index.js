@@ -54,7 +54,6 @@ export function CadastroCidadePage() {
                     data: data?.format('DD/MM/YYYY'),
                     umidade: umidade,
                     precipitacao: precipitacao,
-                    temperatura: temperaturaMaxima,
                     velVento: vento,
                     tempMaxima: temperaturaMaxima,
                     tempMinima: temperaturaMinima,
