@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import locale from 'antd/es/date-picker/locale/pt_BR';
-import { Input, Breadcrumb, Select, Space, InputNumber, DatePicker, Radio, Button, message, Modal } from 'antd';
+import { Input, Breadcrumb, Select, Space, InputNumber, DatePicker, Radio, Button, message, Modal, ConfigProvider } from 'antd';
 import classNames from 'classnames';
 import style from './index.module.css';
 
@@ -17,7 +17,7 @@ export function CadastroCidadePage() {
     const [clima, setClima] = useState('');
     const [vento, setVento] = useState('');
     const [turno, setTurno] = useState('');
-    
+
 
     const [errors, setErrors] = useState({});
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -28,7 +28,7 @@ export function CadastroCidadePage() {
         { label: 'NOITE', value: 'NOITE' },
     ];
 
-    
+
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -50,33 +50,33 @@ export function CadastroCidadePage() {
             return;
         }
 
-        try{
+        try {
             const dados = {
                 cidade,
-                clima:{
-                data: data?.format('DD/MM/YYYY'),
-                umidade,
-                precipitacao: precipitacao,
-                velVento: vento,
-                tempMaxima: temperaturaMaxima,
-                tempMinima: temperaturaMinima,
-                situacaoClima: clima,
-                turno: turno,
+                clima: {
+                    data: data?.format('DD/MM/YYYY'),
+                    umidade,
+                    precipitacao: precipitacao,
+                    velVento: vento,
+                    tempMaxima: temperaturaMaxima,
+                    tempMinima: temperaturaMinima,
+                    situacaoClima: clima,
+                    turno: turno,
                 },
             };
-            const resposta = await axios.post('http://localhost:8080/cidades', dados,{
-                headers:{
+            const resposta = await axios.post('http://localhost:8080/cidades', dados, {
+                headers: {
                     "Content-Type": "application/json"
                 },
             });
-            if(resposta.status === 201){
+            if (resposta.status === 201) {
                 message.success('Sucesso!');
                 setCidade('');
                 setUmidade('');
                 setTemperaturaMaxima('');
                 setTemperaturaMinima('');
             }
-        } catch(erro){
+        } catch (erro) {
             console.log(erro)
         }
 
@@ -226,17 +226,37 @@ export function CadastroCidadePage() {
                     </div>
                 </div>
             </form>
-            <Modal
-                title=""
-                visible={isModalVisible}
-                onOk={handleModalOk}
-                onCancel={handleModalOk}
-                footer={null}
-                width={755}
-                bodyStyle={{ backgroundColor: '#db0d33', color: 'white', fontSize: '32px', width: '100%' }}
+            <ConfigProvider
+                theme={{
+                    components: {
+
+                        Modal: {
+                            contentBg: '#db0d33',
+                            algorithm: true,
+                        }
+                    },
+                }}
             >
-                <p>Por favor, preencha todos os campos obrigatórios antes de salvar.</p>
-            </Modal>
+                <Modal
+                    title=""
+                    visible={isModalVisible}
+                    onOk={handleModalOk}
+                    onCancel={handleModalOk}
+                    footer={null}
+                    width={755}
+                    bodyStyle={{
+                        backgroundColor: "#db0d33",
+                        color: "white",
+                        fontSize: "32px",
+                        width: "100%",
+                    }}
+
+                >
+                    <p>
+                        Por favor, preencha todos os campos obrigatórios antes de salvar.
+                    </p>
+                </Modal>
+            </ConfigProvider>
         </main>
     );
 }
