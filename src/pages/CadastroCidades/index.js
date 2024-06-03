@@ -17,6 +17,7 @@ export function CadastroCidadePage() {
     const [clima, setClima] = useState('');
     const [vento, setVento] = useState('');
     const [turno, setTurno] = useState('');
+    
 
     const [errors, setErrors] = useState({});
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -26,6 +27,8 @@ export function CadastroCidadePage() {
         { label: 'TARDE', value: 'TARDE' },
         { label: 'NOITE', value: 'NOITE' },
     ];
+
+    
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -47,44 +50,36 @@ export function CadastroCidadePage() {
             return;
         }
 
-        try {
+        try{
             const dados = {
-                cidade: cidade,
-                clima: {
-                    data: data?.format('DD/MM/YYYY'),
-                    umidade: umidade,
-                    precipitacao: precipitacao,
-                    velVento: vento,
-                    tempMaxima: temperaturaMaxima,
-                    tempMinima: temperaturaMinima,
-                    situacaoClima: clima,
-                    turno: turno,
+                cidade,
+                clima:{
+                data: data?.format('DD/MM/YYYY'),
+                umidade,
+                precipitacao: precipitacao,
+                velVento: vento,
+                tempMaxima: temperaturaMaxima,
+                tempMinima: temperaturaMinima,
+                situacaoClima: clima,
+                turno: turno,
                 },
             };
-
-            const resposta = await axios.post('http://localhost:8080/cidades', dados, {
-                headers: {
-                    'Content-Type': 'application/json',
+            const resposta = await axios.post('http://localhost:8080/cidades', dados,{
+                headers:{
+                    "Content-Type": "application/json"
                 },
             });
-            if (resposta.status === 201) {
+            if(resposta.status === 201){
                 message.success('Sucesso!');
                 setCidade('');
-                setData(null);
                 setUmidade('');
-                setPrecipitacao('');
                 setTemperaturaMaxima('');
                 setTemperaturaMinima('');
-                setClima('');
-                setVento('');
-                setTurno('');
-                setErrors({});
             }
-        } catch (erro) {
-            message.error({
-                content: 'Erro!',
-            });
+        } catch(erro){
+            console.log(erro)
         }
+
     };
 
     const handleModalOk = () => {
