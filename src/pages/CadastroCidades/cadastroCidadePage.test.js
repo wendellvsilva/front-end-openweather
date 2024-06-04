@@ -4,6 +4,16 @@ import { CadastroCidadePage } from '.';
 import '@testing-library/jest-dom';
 
 jest.mock('axios');
+jest.mock('antd/es/date-picker/locale/pt_BR', () => ({
+  DatePicker: ({ onChange, placeholder, value }) => (
+    <input
+      data-testid="datepicker"
+      placeholder={placeholder}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+    />
+  ),
+}));
 
 describe('CadastroCidadePage', () => {
   beforeEach(() => {
@@ -29,7 +39,7 @@ describe('CadastroCidadePage', () => {
 
     render(<CadastroCidadePage />);
 
-    // Preenche todos os campos do formulário
+
     fireEvent.change(screen.getByPlaceholderText('Digite a cidade'), { target: { value: 'São Paulo' } });
     fireEvent.change(screen.getByPlaceholderText('Selecione a data'), { target: { value: '2024/05/20' } });
     fireEvent.change(screen.getByPlaceholderText('Digite a umidade'), { target: { value: '60' } });
