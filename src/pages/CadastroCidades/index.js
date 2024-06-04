@@ -103,6 +103,7 @@ export function CadastroCidadePage() {
                     <Search
                         placeholder="Digite a cidade"
                         value={cidade}
+                        data-testeId="input-busca"
                         onChange={(e) => setCidade(e.target.value)}
                         className={classNames(style.barra_pesquisa, { [style.erro_borda]: errors.cidade })}
                         style={{ width: '466px' }}
@@ -171,6 +172,7 @@ export function CadastroCidadePage() {
                                 <Select
                                     value={clima}
                                     onChange={(value) => setClima(value)}
+                                    
                                     className={classNames(style.selectInput, { [style.erro_borda]: errors.clima })}
                                 >
                                     {['ENSOLARADO', 'CHUVOSO', 'NUBLADO'].map((opcao) => (
@@ -185,11 +187,13 @@ export function CadastroCidadePage() {
                         <div className={style.precipitacao}>
                             <p className={style.txt_precipitacao}>Precipitação*</p>
                             <InputNumber
+
                                 value={precipitacao}
                                 onChange={(value) => setPrecipitacao(value)}
                                 className={classNames(style.inputNumber, { [style.erro_borda]: errors.precipitacao })}
                                 formatter={(value) => `${value}mm`}
                                 parser={(value) => value?.replace('mm', '')}
+                                data-testid="input_precipitacao"
                             />
                             {errors.precipitacao && <p className={style.erro_texto}>Informe a precipitação.</p>}
                         </div>
@@ -201,6 +205,7 @@ export function CadastroCidadePage() {
                                 className={classNames(style.inputNumber, { [style.erro_borda]: errors.umidade })}
                                 formatter={(value) => `${value}%`}
                                 parser={(value) => value?.replace('%', '')}
+                                data-testid="input_umidade"
                             />
                             {errors.umidade && <p className={style.erro_texto}>Informe a umidade.</p>}
                         </div>
@@ -212,6 +217,7 @@ export function CadastroCidadePage() {
                                 className={classNames(style.inputNumber, { [style.erro_borda]: errors.vento })}
                                 formatter={(value) => `${value}km/h`}
                                 parser={(value) => value?.replace('km/h', '')}
+                                data-testid="input_vento"
                             />
                             {errors.vento && <p className={style.erro_texto}>Informe a velocidade do vento.</p>}
                         </div>
