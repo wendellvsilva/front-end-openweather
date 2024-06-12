@@ -11,14 +11,14 @@
 
   @font-face {
     font-family: 'TT Supermolot Regular';
-    src: url(regular.ttf);
+    src: url(fonts/regular.ttf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'TT Supermolot Bold';
-    src: url(bold.ttf);
+    src: url(fonts/bold.ttf);
     font-weight: normal;
     font-style: normal;
 }

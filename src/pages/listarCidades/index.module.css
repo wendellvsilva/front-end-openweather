@@ -1,0 +1,15 @@
+h1 {
+    font-family: "TT Supermolot Bold", sans-serif;
+    margin: 24px 0px;
+    color: #292929;
+}
+
+.barra_listagem {
+    width: 466px;
+    border-radius: 5px;
+    border: 2px solid #414ABA;
+    background-color: white;
+}
+p {
+    font-family: "TT Supermolot Regular", sans-serif;
+}
