@@ -9,7 +9,7 @@ const { Search } = Input;
 
 export function CadastroCidadePage() {
     const [cidade, setCidade] = useState('');
-    const [data, setData] = useState('');
+    const [data, setData] = useState(null);
     const [umidade, setUmidade] = useState('');
     const [precipitacao, setPrecipitacao] = useState('');
     const [temperaturaMaxima, setTemperaturaMaxima] = useState('');
@@ -17,7 +17,6 @@ export function CadastroCidadePage() {
     const [clima, setClima] = useState('');
     const [vento, setVento] = useState('');
     const [turno, setTurno] = useState('');
-
 
     const [errors, setErrors] = useState({});
     const [isModalVisible, setIsModalVisible] = useState(false);
@@ -27,8 +26,6 @@ export function CadastroCidadePage() {
         { label: 'TARDE', value: 'TARDE' },
         { label: 'NOITE', value: 'NOITE' },
     ];
-
-
 
     const handleSubmit = async (event) => {
         event.preventDefault();
@@ -72,14 +69,20 @@ export function CadastroCidadePage() {
             if (resposta.status === 201) {
                 message.success('Sucesso!');
                 setCidade('');
+                setData(null);
                 setUmidade('');
+                setPrecipitacao('');
                 setTemperaturaMaxima('');
                 setTemperaturaMinima('');
+                setClima('');
+                setVento('');
+                setTurno('');
+                setErrors({});
             }
         } catch (erro) {
-            console.log(erro)
+            console.log(erro);
+            message.error('Erro ao cadastrar os dados.');
         }
-
     };
 
     const handleModalOk = () => {
@@ -172,7 +175,6 @@ export function CadastroCidadePage() {
                                 <Select
                                     value={clima}
                                     onChange={(value) => setClima(value)}
-                                    
                                     className={classNames(style.selectInput, { [style.erro_borda]: errors.clima })}
                                 >
                                     {['ENSOLARADO', 'CHUVOSO', 'NUBLADO'].map((opcao) => (
@@ -187,7 +189,6 @@ export function CadastroCidadePage() {
                         <div className={style.precipitacao}>
                             <p className={style.txt_precipitacao}>Precipitação*</p>
                             <InputNumber
-
                                 value={precipitacao}
                                 onChange={(value) => setPrecipitacao(value)}
                                 className={classNames(style.inputNumber, { [style.erro_borda]: errors.precipitacao })}
@@ -235,7 +236,6 @@ export function CadastroCidadePage() {
             <ConfigProvider
                 theme={{
                     components: {
-
                         Modal: {
                             contentBg: '#db0d33',
                             algorithm: true,
@@ -256,7 +256,6 @@ export function CadastroCidadePage() {
                         fontSize: "32px",
                         width: "100%",
                     }}
-
                 >
                     <p>
                         Por favor, preencha todos os campos obrigatórios antes de salvar.

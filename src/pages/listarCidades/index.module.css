@@ -13,3 +13,13 @@ h1 {
 p {
     font-family: "TT Supermolot Regular", sans-serif;
 }
+.ant-table {
+    font-family: 'TT-Supermolot-Regular';
+    margin-left: 120px;
+    display: flex;
+    margin-top: 40px;
+  }
+ 
+  .ant-table-thead > tr > th {
+    font-family: "TT-Supemolot-Bold";
+  }

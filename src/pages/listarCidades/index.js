@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import style from "./index.module.css";
 import classNames from 'classnames';
-import { Input, Table } from 'antd';
+import { Input, Table, Tag } from 'antd';
 import { format } from 'date-fns';
 
 const ListarCidadePage = () => {
@@ -13,16 +13,16 @@ const ListarCidadePage = () => {
     const handleSubmit = (value) => {
         axios.get(`http://localhost:8080/cidades/buscar?nome=${value}`)
             .then(response => {
-                const cidades = response.data.content.map(item => ({
+                const cities = response.data.content.map(item => ({
                     key: item.id,
                     data: format(new Date(item.clima.data), 'dd/MM/yyyy'),
                     cidade: item.cidade,
-                    temperatura: item.clima.temperatura,
+                    temperatura: `Máx ${item.clima.tempMaxima}º/Min ${item.clima.tempMinima}º`,
                     clima: item.clima.situacaoClima,
                     turno: item.clima.turno,
-                    description: `Umidade: ${item.clima.umidade}, Precipitação: ${item.clima.precipitacao}, Velocidade do Vento: ${item.clima.velVento}, Temperatura Máxima: ${item.clima.tempMaxima}, Temperatura Mínima: ${item.clima.tempMinima}`
+                    description: `Umidade: ${item.clima.umidade}, Precipitação: ${item.clima.precipitacao}, Velocidade do Vento: ${item.clima.velVento}`
                 }));
-                setData(cidades);
+                setData(cities);
             })
             .catch(error => {
                 console.error("Houve um erro ao buscar a cidade:", error);
@@ -30,12 +30,53 @@ const ListarCidadePage = () => {
             });
     };
 
+    const renderTags = (turno) => {
+        let color;
+        let backgroundColor;
+        switch (turno) {
+            case 'MANHÃ':
+                color = '#FAAD14';
+                backgroundColor = '#FFFBE6';
+                break;
+            case 'TARDE':
+                color = '#FA541C';
+                backgroundColor = '#FFF2E8';
+                break;
+            case 'NOITE':
+                color = '#722ED1';
+                backgroundColor = '#F9F0FF';
+                break;
+            default:
+                color = '#000000';
+                backgroundColor = '#FFFFFF';
+        }
+        return (
+            <Tag
+                key={turno}
+                style={{ color: color, backgroundColor: backgroundColor }}
+            >
+                {turno.toUpperCase()}
+            </Tag>
+        );
+    };
+
+    const deletarCidade = async (id) => {
+        try {
+            await axios.delete(`http://localhost:8080/cidades/${id}`);
+            console.log("APAGOU!");
+            
+            setData(data.filter(item => item.key !== id));
+        } catch (error) {
+            console.error("ERRO AO APAGAR:", error);
+        }
+    };
+
     const columns = [
         { title: 'Data', dataIndex: 'data', key: 'data' },
         { title: 'Cidade', dataIndex: 'cidade', key: 'cidade' },
         { title: 'Temperatura', dataIndex: 'temperatura', key: 'temperatura' },
         { title: 'Clima', dataIndex: 'clima', key: 'clima' },
-        { title: 'Turno', dataIndex: 'turno', key: 'turno' },
+        { title: 'Turno', dataIndex: 'turno', key: 'turno', render: (turno) => renderTags(turno) },
         {
             dataIndex: '',
             key: 'z',
@@ -44,7 +85,7 @@ const ListarCidadePage = () => {
         {
             dataIndex: '',
             key: 'x',
-            render: () => <a>Excluir</a>,
+            render: (text, record) => <a onClick={() => deletarCidade(record.key)}>Excluir</a>,
         },
     ];
 
@@ -55,10 +96,10 @@ const ListarCidadePage = () => {
                     key: item.id,
                     data: format(new Date(item.clima.data), 'dd/MM/yyyy'),
                     cidade: item.cidade,
-                    temperatura: item.clima.temperatura,
+                    temperatura: `Máx ${item.clima.tempMaxima}º/Min ${item.clima.tempMinima}º`,
                     clima: item.clima.situacaoClima,
                     turno: item.clima.turno,
-                    description: `Umidade: ${item.clima.umidade}, Precipitação: ${item.clima.precipitacao}, Velocidade do Vento: ${item.clima.velVento}, Temperatura Máxima: ${item.clima.tempMaxima}, Temperatura Mínima: ${item.clima.tempMinima}`
+                    description: `Umidade: ${item.clima.umidade}, Precipitação: ${item.clima.precipitacao}, Vento: ${item.clima.velVento}`
                 }));
                 setData(formattedData);
             })
@@ -69,7 +110,7 @@ const ListarCidadePage = () => {
 
     return (
         <>
-            <h1 className={style.h1}>Cadastro de dados meteorológicos</h1>
+            <h1 className={style.h1}>Lista de Dados Meteorológicos</h1>
             <form onSubmit={(e) => { e.preventDefault(); handleSubmit(cidade); }} className={style.busca_cidades_data}>
                 <div className={style.busca_cidades}>
                     <p className={style.txt_buscar_cidades}>Buscar a cidade</p>
@@ -85,9 +126,9 @@ const ListarCidadePage = () => {
                     />
                 </div>
             </form>
-            <Table 
-                columns={columns} 
-                dataSource={data} 
+            <Table
+                columns={columns}
+                dataSource={data}
                 expandable={{
                     expandedRowRender: (record) => <p style={{ margin: 0 }}>{record.description}</p>,
                     rowExpandable: (record) => record.cidade !== 'Not Expandable',
