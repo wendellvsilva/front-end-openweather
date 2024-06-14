@@ -80,12 +80,12 @@ const ListarCidadePage = () => {
         {
             dataIndex: '',
             key: 'z',
-            render: () => <a>Editar</a>,
+            render: () => <a className={style.txt_table_action}>Editar</a>,
         },
         {
             dataIndex: '',
             key: 'x',
-            render: (text, record) => <a onClick={() => deletarCidade(record.key)}>Excluir</a>,
+            render: (text, record) => <a onClick={() => deletarCidade(record.key)} className={style.txt_table_action} >Excluir</a>,
         },
     ];
 
