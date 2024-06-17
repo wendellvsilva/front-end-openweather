@@ -47,6 +47,8 @@ export function CadastroCidadePage() {
             return;
         }
 
+        
+
         try {
             const dados = {
                 cidade,
@@ -177,7 +179,7 @@ export function CadastroCidadePage() {
                                     onChange={(value) => setClima(value)}
                                     className={classNames(style.selectInput, { [style.erro_borda]: errors.clima })}
                                 >
-                                    {['ENSOLARADO', 'CHUVOSO', 'NUBLADO'].map((opcao) => (
+                                    {['ENSOLARADO', 'CHOVENDO', 'NUBLADO'].map((opcao) => (
                                         <Select.Option key={opcao} value={opcao}>
                                             {opcao}
                                         </Select.Option>
