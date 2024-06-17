@@ -121,6 +121,7 @@ const ListarCidadePage = () => {
                         value={cidade}
                         onChange={(e) => setCidade(e.target.value)}
                         onSearch={handleSubmit}
+                        data-testid="input_busca_listar"
                         className={classNames(style.barra_listar)}
                         style={{ width: '466px' }}
                     />

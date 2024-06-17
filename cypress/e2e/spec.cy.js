@@ -5,7 +5,7 @@ describe('Cadastro de Cidades', () => {
   });
 
   it('Permitir o preenchimento e envio do formulário', () => {
-    cy.get('input[placeholder="Digite a cidade"]').type('Manaus, Amazonas');
+    cy.get('.cadastroCidades_busca_cidades_data__dvyQC > :nth-child(1) > .ant-input-group-wrapper > .ant-input-wrapper > .ant-input').type('Jaboatão dos Guararapes, Pernambuco');
     cy.get('.ant-picker-input').click();
     cy.get('.ant-picker-cell-inner').contains('15').click();
     cy.get(':nth-child(1) > .ant-input-number-input-wrap > .ant-input-number-input').type('30');
@@ -19,10 +19,13 @@ describe('Cadastro de Cidades', () => {
       .contains('ENSOLARADO')
       .click();
 
-    cy.get('.ant-radio-group input').check('MANHÃ', { force: true });
+    cy.get('.ant-radio-group input').check('TARDE', { force: true });
 
 
     cy.get('.ant-btn-primary').click();
+    cy.get('[style="margin-top: 20px; margin-left: 80px;"] > :nth-child(3) > div > .ant-input-group-wrapper > .ant-input-wrapper').type('Jaboatão dos Guararapes, Pernambuco').type('{enter}');
+
+
 
   });
 
