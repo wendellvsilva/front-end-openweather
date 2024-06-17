@@ -20,6 +20,7 @@ export function CadastroCidadePage() {
 
     const [errors, setErrors] = useState({});
     const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalVisibleSuccess, setIsModalVisibleSuccess] = useState(false);
 
     const options = [
         { label: 'MANHÃ', value: 'MANHÃ' },
@@ -47,7 +48,7 @@ export function CadastroCidadePage() {
             return;
         }
 
-        
+
 
         try {
             const dados = {
@@ -69,7 +70,7 @@ export function CadastroCidadePage() {
                 },
             });
             if (resposta.status === 201) {
-                message.success('Sucesso!');
+                
                 setCidade('');
                 setData(null);
                 setUmidade('');
@@ -80,6 +81,7 @@ export function CadastroCidadePage() {
                 setVento('');
                 setTurno('');
                 setErrors({});
+                setIsModalVisibleSuccess(true);
             }
         } catch (erro) {
             console.log(erro);
@@ -89,6 +91,11 @@ export function CadastroCidadePage() {
 
     const handleModalOk = () => {
         setIsModalVisible(false);
+        
+    };
+    
+    const handleModalOkSuccess = () => {
+        setIsModalVisibleSuccess(false);
     };
 
     return (
@@ -263,7 +270,37 @@ export function CadastroCidadePage() {
                         Por favor, preencha todos os campos obrigatórios antes de salvar.
                     </p>
                 </Modal>
-            </ConfigProvider>
-        </main>
+                </ConfigProvider>
+                <ConfigProvider
+                theme={{
+                    components: {
+                        Modal: {
+                            contentBg: '#8BC34A',
+                            algorithm: true,
+                        }
+                    },
+                }}
+            >
+                <Modal
+                    title=""
+                    visible={isModalVisibleSuccess}
+                    onOk={handleModalOkSuccess}
+                    onCancel={handleModalOkSuccess}
+                    footer={null}
+                    width={755}
+                    bodyStyle={{
+                        backgroundColor: "#8BC34A", 
+                        color: "white",
+                        fontSize: "32px",
+                        width: "100%",
+                    }}
+                >
+                    <p>
+                        SUCESSO
+                    </p>
+                </Modal>
+                </ConfigProvider>
+            
+        </main >
     );
 }
