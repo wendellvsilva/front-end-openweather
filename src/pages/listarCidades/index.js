@@ -13,16 +13,16 @@ const ListarCidadePage = () => {
     const handleSubmit = (value) => {
         axios.get(`http://localhost:8080/cidades/buscar?nome=${value}`)
             .then(response => {
-                const cities = response.data.content.map(item => ({
+                const cidades = response.data.content.map(item => ({
                     key: item.id,
                     data: format(new Date(item.clima.data), 'dd/MM/yyyy'),
                     cidade: item.cidade,
                     temperatura: `Máx ${item.clima.tempMaxima}º/Min ${item.clima.tempMinima}º`,
                     clima: item.clima.situacaoClima,
                     turno: item.clima.turno,
-                    description: `Umidade: ${item.clima.umidade}, Precipitação: ${item.clima.precipitacao}, Velocidade do Vento: ${item.clima.velVento}`
+                    
                 }));
-                setData(cities);
+                setData(cidades);
             })
             .catch(error => {
                 console.error("Houve um erro ao buscar a cidade:", error);
@@ -89,6 +89,12 @@ const ListarCidadePage = () => {
         },
     ];
 
+    const descricao = [
+        { title: 'Precipitação', dataIndex: 'precipitacao', key: 'precipitacao', render: (value) => `${value}mm` },
+        { title: 'Umidade', dataIndex: 'umidade', key: 'umidade', render: (value) => `${value}%` },
+        { title: 'Velocidade do vento', dataIndex: 'velVento', key: 'velVento', render: (value) => `${value}km/h` },
+    
+    ]
     useEffect(() => {
         axios.get('http://localhost:8080/cidades')
             .then(response => {
@@ -99,7 +105,14 @@ const ListarCidadePage = () => {
                     temperatura: `Máx ${item.clima.tempMaxima}º/Min ${item.clima.tempMinima}º`,
                     clima: item.clima.situacaoClima,
                     turno: item.clima.turno,
-                    description: `Umidade: ${item.clima.umidade}, Precipitação: ${item.clima.precipitacao}, Vento: ${item.clima.velVento}`
+                    description: (
+                        <Table
+                            columns={descricao}
+                            dataSource={[{ umidade: item.clima.umidade, precipitacao: item.clima.precipitacao, velVento: item.clima.velVento }]}
+                           
+                            
+                        />
+                    )
                 }));
                 setData(formattedData);
             })
