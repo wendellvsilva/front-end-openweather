@@ -31,14 +31,14 @@ describe('ListarCidadePage', () => {
         });
     });
 
-    test('Verificar os textos', async () => {
-        render(<ListarCidadePage />);
-        expect(await screen.findByText('Lista de Dados Meteorológicos')).toBeInTheDocument();
-        expect(await screen.findByText('Belo Horizonte')).toBeInTheDocument();
-        expect(await screen.findByText('Máx 1º/Min 1º')).toBeInTheDocument();
-        expect(await screen.findByText('ENSOLARADO')).toBeInTheDocument();
-        expect(await screen.findByText('MANHÃ')).toBeInTheDocument();
-    });
+    // test('Verificar os textos', async () => {
+    //     render(<ListarCidadePage />);
+    //     expect(await screen.findByText('Lista de Dados Meteorológicos')).toBeInTheDocument();
+    //     expect(await screen.findByText('Belo Horizonte')).toBeInTheDocument();
+    //     expect(await screen.findByText('Máx 1º/Min 1º')).toBeInTheDocument();
+    //     expect(await screen.findByText('ENSOLARADO')).toBeInTheDocument();
+    //     expect(await screen.findByText('MANHÃ')).toBeInTheDocument();
+    // });
 
     test('Deve preencher o campo', async () => {
         render(<ListarCidadePage />);

@@ -1,0 +1,234 @@
+.container_principal {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.classe_cidade {
+    width: 1400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.barra_pesquisa {
+    width: 466px;
+    border-radius: 5px;
+    border: 2px solid #414ABA;
+    background-color: white;
+}
+
+.texto_informe_temperatura {
+    font-size: 39.36px;
+
+}
+
+.busca_cidades_data {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.busca_cidades_data div:nth-child(5) {
+    grid-column: 1 / span 2;
+}
+
+.input_temperatura {
+    display: flex;
+    gap: 8px;
+}
+
+.informe_temperatura {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 440px;
+    margin-top: 64px;
+
+}
+
+h1 {
+    font-family: "TT Supermolot Bold", sans-serif;
+    margin: 24px 0px;
+    color: #292929;
+}
+
+.data_cidades {
+    width: 200px;
+    height: 40px;
+}
+
+.txt_buscar_cidades {
+    font-size: 24px;
+    font-family: "TT Supermolot Regular", sans-serif;
+}
+
+.txt_cidade_obrigatoria {
+    font-size: 14px;
+    margin-bottom: 8px;
+    font-family: "TT Supermolot Regular", sans-serif;
+}
+
+.txt_maxima_minima {
+    display: flex;
+}
+
+.txt_minima {
+    margin-left: 40px;
+}
+
+p {
+    font-family: "TT Supermolot Regular", sans-serif;
+}
+
+.informe_clima {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+.campos_clima {
+    display: flex;
+    align-items: center;
+    gap: 60px;
+}
+
+.selectInput {
+    width: 120px;
+    border: 2px solid #414ABA;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+
+
+.clima_enum {
+    margin-right: 60px;
+}
+
+.precipitacao {
+    margin-right: 60px;
+}
+
+.txt_precipitacao {
+    width: 107px;
+    height: 22px;
+}
+
+.umidade {
+    margin-right: 60px;
+}
+
+.selectInput {
+    width: 207px;
+    height: 40px;
+}
+
+.texto_select_turno {
+    font-family: "TT Supermolot Regular", sans-serif;
+    font-size: 32px;
+}
+
+.selecione_data {
+    margin-left: 74px;
+
+}
+
+.turno {
+    margin-top: 64px;
+    margin-left: 74px;
+}
+
+.txt_selecione_data {
+    font-size: 32px;
+    font-family: "TT Supermolot Regular", sans-serif;
+    margin-bottom: 16px;
+}
+
+.txt_data {
+    font-family: "TT Supermolot Regular", sans-serif;
+    margin-bottom: 8px;
+}
+
+.texto_turno {
+    margin-top: 16px;
+    margin-bottom: 8px;
+}
+
+.inputNumber {
+    width: 90px;
+    height: 40px;
+    border: 2px solid #414ABA;
+}
+
+.radio {
+    font-size: 12px;
+    margin-right: 40px;
+    border: 1px solid red;
+    width: 190px;
+}
+
+.error {
+    border-color: red;
+}
+
+.botao_salvar {
+    width: 199px;
+    height: 40px;
+    background-color: #414ABA;
+    border-radius: 2px;
+    font-family: "TT Supermolot Bold", sans-serif;
+
+}
+
+.botao_cancelar {
+    width: 199px;
+    height: 40px;
+    border: 1px solid #414ABA;
+    color: #414ABA;
+    background-color: white;
+    border-radius: 2px;
+    font-family: "TT Supermolot Bold", sans-serif;
+    margin-right: 9px;
+}
+
+.botoes_salvar_cancelar {
+    width: 440px;
+    margin-top: 60px;
+    margin-left: 550px;
+    margin-bottom: 6px;
+
+}
+
+.erro_borda {
+    border: 2px solid red !important;
+}
+
+.erro_texto {
+    color: red;
+    font-size: 12px;
+    margin-top: 4px;
+
+}
+
+.mensagem_erro {
+    background-color: #ff4d4f;
+    color: white; 
+    font-weight: bold; 
+    padding: 10px;
+    border-radius: 5px;
+}
+.radioGroup {
+    display: flex;
+    gap: 8px;
+}
+
+.erro_borda_radio{
+    border: 2px solid red !important;
+    width: 243.5px;
+}
+
+
+.ant-modal-content{
+    background-color: black !important;
+}
+

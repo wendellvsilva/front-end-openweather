@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
-import axios from 'axios';
+import axios from 'axios';    
 import style from "./index.module.css";
 import classNames from 'classnames';
+import { Link } from 'react-router-dom';
 import { Input, Table, Tag } from 'antd';
 import { format } from 'date-fns';
 
@@ -79,9 +80,10 @@ const ListarCidadePage = () => {
         { title: 'Turno', dataIndex: 'turno', key: 'turno', render: (turno) => renderTags(turno) },
         {
             dataIndex: '',
-            key: 'z',
-            render: () => <a className={style.txt_table_action}>Editar</a>,
-        },
+            key: 'edit',
+            render: (text, record) => (
+                <Link to={`/editar/${record.key}`} className={style.txt_table_action}>Editar</Link>
+            )},
         {
             dataIndex: '',
             key: 'x',
