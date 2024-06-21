@@ -12,7 +12,7 @@ describe('ListarCidadePage', () => {
             data: {
                 content: [
                     {
-                        id: 10,
+                        id: 4,
                         cidade: 'Belo Horizonte',
                         clima: {
                             data: '2024-06-17',
