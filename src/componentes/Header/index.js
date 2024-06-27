@@ -7,8 +7,8 @@ export function Header() {
         <header className={style.header}>
             <img src="imagens/iconedb.png" alt="Icone" width={76} height={34} />
             <nav>
-                <Link to="/">Cadastro</Link>
-                <Link to="/listar">Listar</Link>
+                <Link to="/">CADASTRO</Link>
+                <Link to="/listar">LISTAR</Link>
             </nav>
         </header>
     );
