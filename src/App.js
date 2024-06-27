@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes, Link } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { Header } from './componentes/Header';
 import { CadastroCidadePage } from './pages/cadastroCidades';
 import ListarCidadePage from './pages/listarCidades';
@@ -10,12 +10,7 @@ function App() {
     <Router>
       <div className="App">
         <Header />
-        <nav>
-          <ul>
-            <li><Link to="/">Cadastro</Link></li>
-            <li><Link to="/listar">Listar</Link></li>
-          </ul>
-        </nav>
+        
         <div style={{ marginTop: '20px', marginLeft: '80px' }}>
           <Routes>
             <Route path="/" element={<CadastroCidadePage />} />

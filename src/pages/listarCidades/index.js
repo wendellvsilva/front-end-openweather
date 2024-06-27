@@ -111,7 +111,7 @@ const ListarCidadePage = () => {
                         <Table
                             columns={descricao}
                             dataSource={[{ umidade: item.clima.umidade, precipitacao: item.clima.precipitacao, velVento: item.clima.velVento }]}
-                           
+                            pagination={false}
                             
                         />
                     )
